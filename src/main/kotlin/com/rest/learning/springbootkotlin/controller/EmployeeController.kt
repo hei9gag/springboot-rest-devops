@@ -15,7 +15,7 @@ class EmployeeController(
 ) {
 
     @GetMapping
-    fun fetchEmployees(): ResponseEntity<List<Employee>> {
+    fun fetchAllEmployees(): ResponseEntity<List<Employee>> {
         val employees = employeeService.getAllEmployee()
         return ResponseEntity(employees, HttpStatus.OK)
     }
