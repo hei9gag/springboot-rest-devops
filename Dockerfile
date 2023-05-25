@@ -4,7 +4,6 @@ WORKDIR application
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 RUN java -Djarmode=layertools -jar app.jar extract
-#ENTRYPOINT ["java","-jar","/application/app.jar"]
 
 FROM eclipse-temurin:11.0.19_7-jre-jammy
 WORKDIR application
