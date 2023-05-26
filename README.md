@@ -1,5 +1,8 @@
 # Getting Started
 
+### How to run app
+Run `./gradlew bootRun`
+
 ### How to build app into jar
 Run `./gradlew build`
 
