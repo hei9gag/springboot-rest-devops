@@ -16,7 +16,8 @@ on:
       - 'feature/**'
       - 'release/**'
 jobs:
-  build:
+  checkout:
+    name: Checkout
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -29,11 +30,23 @@ jobs:
           cache: 'gradle'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1.0.6
+
+  test:
+    name: Test app
+    needs: checkout
+    runs-on: ubuntu-latest
+    steps:
       - name: Test app
         uses: gradle/gradle-build-action@v2.4.2
         with:
           gradle-version: 7.6.1
           arguments: test
+
+  build:
+    name: Build app
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
       - name: Build app
         uses: gradle/gradle-build-action@v2.4.2
         with:
