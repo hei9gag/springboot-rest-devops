@@ -11,3 +11,6 @@ Run `./gradlew test`
 
 ### How to build app as a Docker image
 Run `docker build -t {tag}`
+
+# App Configuration Repo
+https://github.com/hei9gag/app-config

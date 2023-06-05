@@ -29,24 +29,4 @@ jobs:
         with:
           gradle-version: 7.6.1
           arguments: test
-
-      - name: Build app
-        uses: gradle/gradle-build-action@v2.4.2
-        with:
-          gradle-version: 7.6.1
-          arguments: build
-      
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      
-      - name: Build and push
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/spring-application:latest
           
